@@ -8,8 +8,8 @@ class Solution:
 
         def expand(left, right):
             nonlocal max_len, start
-            while left > 0 and right < len(s) and s[left] == s[right]:
-                length = left - right + 1
+            while left >= 0 and right < len(s) and s[left] == s[right]:
+                length = right - left + 1
                 if length > max_len:
                     start = left
                     max_len = length
@@ -21,3 +21,8 @@ class Solution:
             expand(i,i+1)
 
         return s[start:start + max_len] 
+
+user_input = input("Enter the value: ")
+solution = Solution()
+result = solution.longestPalindrome(user_input)
+print(result)
